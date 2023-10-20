@@ -14,8 +14,8 @@ function Question({ listQuests }) {
 
   const optionChange = (e, quest) => {
     console.log(e.target.value);
-    setAnswer((prev) => {
-      const newAnswers = { ...prev };
+    setAnswer(() => {
+      const newAnswers = { ...answer };
       newAnswers[quest] = e.target.value;
       localStorage.setItem("answer", JSON.stringify(newAnswers));
       return newAnswers;
@@ -26,7 +26,11 @@ function Question({ listQuests }) {
     <div className={cx("list")}>
       {listQuests.map((item, indexQues) => {
         return (
-          <div key={indexQues} className={cx("questItem")}>
+          <div
+            key={indexQues}
+            id={`quest${indexQues+1}`}
+            className={cx("questItem")}
+          >
             <h1>
               {indexQues + 1}---{item.question}
             </h1>

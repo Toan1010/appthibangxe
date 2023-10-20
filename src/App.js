@@ -7,6 +7,7 @@ import { getRandomQuests } from "./GetAndShuffle";
 
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
+import NaviQuest from "./component/NaviQuest";
 
 const cx = classNames.bind(styles);
 
@@ -47,12 +48,15 @@ function App() {
       <div className={cx("content")}>
         {start && <Question listQuests={listQuestions} />}
         {!start && <Result listQuests={listQuestions} score={setCorrect} />}
-        {start && <Timer initialTime={quiz} onTimeup={toggleQuiz} />}
-        {!start && (
-          <p>
-            Point: {correct} / {quiz}
-          </p>
-        )}
+        <div>
+          {start && <Timer initialTime={quiz} onTimeup={toggleQuiz} />}
+          {!start && (
+            <p>
+              Point: {correct} / {quiz}
+            </p>
+          )}
+          <NaviQuest numQuests={quiz}></NaviQuest>
+        </div>
       </div>
     </div>
   );
