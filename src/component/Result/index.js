@@ -31,7 +31,11 @@ function Result({ listQuests, score }) {
     <div className={cx("list")}>
       {listQuests.map((item, indexQues) => {
         return (
-          <div key={indexQues} className={cx("questItem")}>
+          <div
+            key={indexQues}
+            id={`quest${indexQues + 1}`}
+            className={cx("questItem")}
+          >
             <h1>
               {indexQues + 1}---{item.question}
             </h1>

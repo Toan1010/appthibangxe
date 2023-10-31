@@ -5,9 +5,8 @@ import { Fragment, useEffect, useState } from "react";
 const cx = classNames.bind(styles);
 
 function Question({ listQuests }) {
-  const [state, setState] = useState("");
   const [answer, setAnswer] = useState({});
-
+  console.log(listQuests);
   useEffect(() => {
     localStorage.setItem("answer", JSON.stringify({}));
   }, []);
@@ -28,7 +27,7 @@ function Question({ listQuests }) {
         return (
           <div
             key={indexQues}
-            id={`quest${indexQues+1}`}
+            id={`quest${indexQues + 1}`}
             className={cx("questItem")}
           >
             <h1>

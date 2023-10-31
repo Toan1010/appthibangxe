@@ -18,8 +18,9 @@ function App() {
   const [listQuestions, setListQuestions] = useState([]);
   const [status, setStatus] = useState("Start");
 
-  const toggleQuiz = (mode) => {
+  const toggleQuiz = (mode, submit = true) => {
     if (
+      !submit &&
       status === "End" &&
       !window.confirm("Are you sure you want to submit ?")
     ) {
@@ -51,9 +52,9 @@ function App() {
         <div>
           {start && <Timer initialTime={quiz} onTimeup={toggleQuiz} />}
           {!start && (
-            <p>
+            <h1>
               Point: {correct} / {quiz}
-            </p>
+            </h1>
           )}
           <NaviQuest numQuests={quiz}></NaviQuest>
         </div>

@@ -5,8 +5,8 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(style);
 
 function Timer({ initialTime, onTimeup }) {
-  const [timeLeft, setTimeLeft] = useState(5);
-
+  const [timeLeft, setTimeLeft] = useState(initialTime * 10 || 0);
+  console.log(timeLeft);
   useEffect(() => {
     let interval;
 

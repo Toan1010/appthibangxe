@@ -12,7 +12,7 @@ function Header({ start, change }) {
   };
 
   const clickBtn = () => {
-    start(parseInt(selectedOption));
+    start(parseInt(selectedOption),false);
   };
 
   return (
